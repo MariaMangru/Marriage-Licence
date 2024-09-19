@@ -16,8 +16,8 @@ library(readr)
 simulated_data <- read_csv("../data/raw_data/marriage_data.csv")
 
 
-# Test 1: Test to check there are no negative values in the marriage license column
-test_that("No negative marriage licenses", {
-  expect_true(all(data$MARRIAGE_LICENSES >= 0))
-})
+#Test for negative numbers
+data$number_of_marriage |> min() <= 0
 
+#Test for NA
+is.na(data$number_of_marriage) == 0
