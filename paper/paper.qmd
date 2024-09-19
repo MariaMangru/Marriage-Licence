@@ -1,6 +1,5 @@
 ---
 title: "Marriage License Data"
-subtitle: "My subtitle if needed"
 author: 
   - Maria Mangru
 thanks: "Code and data are available at: https://github.com/MariaMangru/Marriage-Licence."
@@ -21,40 +20,20 @@ library(tidyverse)
 library(readr)
 
 cleaned_data <- read_csv("../data/analysis_data/analysis_data.csv")
-raw_data <- read_csv("../data/raw_data/raw_data.csv")
 
 ```
-
 
 # Introduction
 
-You can and should cross-reference sections and sub-sections. We use @citeR and @rohan.
+In this short paper we used @citeR, @opendatatorotno and @rohan.
 
-The remainder of this paper is structured as follows. @sec-data....
-
-
+The remainder of this paper is structured as follows. @sec-data provides a scatter plot of the marriage data. @sec-discussion contains the discussion.
 
 # Data {#sec-data}
 
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+The figure (@fig-marriage) below shows the number of marriage licenses issued in Toronto between 2011 to 2024. We can see a fairly consistent pattern up to 2020, with fluctuations between 0 and approximately 1000 licenses per period.
 
-```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
-#| echo: false
-
-cleaned_data <-
-  raw_data |>
-  janitor::clean_names() |>
-  separate(col= time_period, 
-           into = c("year","month"),
-           sep = "-") |>
-  mutate(date = lubridate:: ymd(paste(year, month, "01", sep = "-")))
-```
-
-Talk more about it.
-
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
+However, post-2020, there appears to be an increase in the variation and frequency of licenses issued. This trend could be as a result of the COVID-19 pandemic in 2020 which may have caused delays or surges in marriage license applications.
 
 ```{r}
 #| label: fig-marriage
@@ -63,21 +42,21 @@ And also planes (@fig-planes). (You can change the height and width, but don't w
 #| warning: false
 #| message: false
 
-analysis_data <- read_csv(here::here("data/analysis_data/analysis_data.csv"))
+analysis_data <- read_csv("../data/analysis_data/analysis_data.csv")
 
 analysis_data |> 
   ggplot(aes(x = date, y = marriage_licenses)) +
   geom_point()
 ```
 
-Talk way more about it. 
+{{< pagebreak >}}
 
 
-# Discussion
+# Discussion {#sec-discussion}
 
-## First discussion point {#sec-first-point}
+## First discussion point
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
 
 ## Second discussion point
 
@@ -91,14 +70,10 @@ Weaknesses and next steps should also be included.
 
 \appendix
 
-# Appendix {-}
-
+# Appendix {.unnumbered}
 
 # Additional data details
 
 \newpage
 
-
 # References
-
-
